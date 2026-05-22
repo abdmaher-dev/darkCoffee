@@ -3,19 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aroma Cafe - القائمة</title>
+  <title>Dark Coffee - القائمة</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" type="image/x-icon" href="/public/assests/coffee_logo.webp">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+<base target="_blank">
 </head>
 <body>
 
   <!-- Hero -->
   <header class="hero">
+    <div class="hero-pattern"></div>
     <div class="hero-logo">
-      <img src="assests/coffee_logo.webp" alt="Aroma Cafe Logo" class="hero-logo-img" />
+      <div class="hero-logo-ring">
+        <span class="hero-logo-icon">☕</span>
+      </div>
     </div>
-    <h1 class="hero-title font">Aroma Cafe</h1>
-    <p class="hero-subtitle font">Where Magic Happens</p>
+    <h1 class="hero-title">Dark Coffee</h1>
+    <p class="hero-subtitle">حيث تلتقي النكهة بالفن</p>
+    <div class="hero-divider">
+      <span class="hero-divider-line"></span>
+      <span class="hero-divider-icon">✦</span>
+      <span class="hero-divider-line"></span>
+    </div>
   </header>
 
   <!-- Tabs -->
@@ -26,9 +36,67 @@
   <!-- Sections -->
   <div id="sections"></div>
 
+  <!-- Story Section -->
+  <section class="story-section" id="story">
+    <div class="story-bg"></div>
+    <div class="story-content">
+      <div class="story-header">
+        <span class="story-badge">قصتنا</span>
+        <h2 class="story-title">من حبة قهوة إلى فنّ</h2>
+        <p class="story-subtitle">رحلة شغف بدأت منذ عام 2019</p>
+      </div>
+
+      <div class="story-timeline">
+        <div class="story-card">
+          <div class="story-card-icon">🌱</div>
+          <div class="story-card-year">2019</div>
+          <h3 class="story-card-title">البداية</h3>
+          <p class="story-card-text">بدأنا رحلتنا بحلم بسيط: تقديم أفضل كوب قهوة في المدينة. اخترنا أجود حبوب الأرابيكا من المزارع العائلية.</p>
+        </div>
+
+        <div class="story-card">
+          <div class="story-card-icon">🔥</div>
+          <div class="story-card-year">2021</div>
+          <h3 class="story-card-title">التحميص</h3>
+          <p class="story-card-text">أطلقنا محمصتنا الخاصة، حيث نتحكم بكل تفصيلة في عملية التحميص لنصل إلى النكهة المثالية.</p>
+        </div>
+
+        <div class="story-card">
+          <div class="story-card-icon">🏆</div>
+          <div class="story-card-year">2024</div>
+          <h3 class="story-card-title">التميز</h3>
+          <p class="story-card-text">حصلنا على جائزة أفضل مقهى محلي، وواصلنا الابتكار بمشروبات فريدة تجمع بين التقليد والحداثة.</p>
+        </div>
+
+        <div class="story-card">
+          <div class="story-card-icon">💚</div>
+          <div class="story-card-year">2026</div>
+          <h3 class="story-card-title">المستقبل</h3>
+          <p class="story-card-text">نستمر في رحلتنا مع التزامنا بالجودة والاستدامة، لنكون وجهتك الأولى في كل مرة تبحث فيها عن الكمال.</p>
+        </div>
+      </div>
+
+      <div class="story-quote">
+        <blockquote>
+          "القهوة ليست مجرد مشروب، إنها لغة تتحدث بها الروح"
+        </blockquote>
+        <cite>— فريق Dark Coffee</cite>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer>
-    <p>✨ مقهى الأحلام، حيث تتحقق الأحلام &copy; 2026</p>
+    <div class="footer-brand">
+      <span class="footer-icon">☕</span>
+      <span class="footer-name">Dark Coffee</span>
+    </div>
+    <p>حيث تتحقق الأحلام في كل رشفة &copy; 2026</p>
+    <div class="footer-social">
+      <span>📍</span>
+      <span>📞</span>
+      <span>📸</span>
+    </div>
   </footer>
 
   <!-- Item Detail Modal -->

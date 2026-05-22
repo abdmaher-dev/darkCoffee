@@ -1,9 +1,9 @@
 // ============================================================
-//  app.js — Aroma Cafe
+//  app.js — Dark Coffee
 // ============================================================
 
 const API_URL = 'https://aroma-cafe-production.up.railway.app/api/menu';
-const FAV_KEY = 'aroma_favorites';
+const FAV_KEY = 'darkcoffee_favorites';
 
 function esc(str) {
   if (str === null || str === undefined) return '';
@@ -49,7 +49,7 @@ function buildPage(data) {
   const catsArr = data.categoriesArr
     ? data.categoriesArr
     : Object.keys(categories).map(k => ({ key: k, ...categories[k] }));
-  document.querySelector('.hero-title').textContent = cafe.name;
+  document.querySelector('.hero-title').textContent = cafe.name || 'Dark Coffee';
   buildTabs(catsArr);
   catsArr.forEach(cat => {
     const catItems = items.filter(i => i.category === cat.key).sort((a,b) => (a.order??9999)-(b.order??9999));
@@ -137,7 +137,6 @@ function buildCard(item, index) {
   img.onerror = function() { this.src = 'images/placeholder.jpg'; this.onerror = null; };
   imageWrap.appendChild(img);
 
-  // Star button
   const starBtn = document.createElement('button');
   starBtn.className = 'card-star-btn';
   starBtn.title = 'أضف للمفضلة';
@@ -149,7 +148,6 @@ function buildCard(item, index) {
   starBtn.addEventListener('click', e => {
     e.stopPropagation();
     const nowFav = toggleFav(item);
-    // ✅ Sync ALL cards with same id everywhere on the page
     syncAllCardStars(item.id, nowFav);
     if (_modalItem && String(_modalItem.id) === String(item.id)) updateModalStar(nowFav);
     if (document.getElementById('__favorites__')?.classList.contains('active')) renderFavoritesSection();
@@ -172,7 +170,6 @@ function buildCard(item, index) {
   return card;
 }
 
-// ✅ Sync stars on ALL cards with the same item id
 function syncAllCardStars(itemId, isFaved) {
   const sid = String(itemId);
   document.querySelectorAll('.menu-card').forEach(card => {
@@ -186,7 +183,6 @@ function syncAllCardStars(itemId, isFaved) {
   });
 }
 
-// ITEM MODAL
 function openItemModal(item) {
   _modalItem = item;
   const overlay = document.getElementById('itemModalOverlay');
@@ -194,9 +190,9 @@ function openItemModal(item) {
   document.getElementById('modalImg').src = safeImg;
   document.getElementById('modalImg').onerror = function() { this.src = 'images/placeholder.jpg'; this.onerror = null; };
   document.getElementById('modalImg').alt = item.name;
-  document.getElementById('modalName').textContent  = item.name;
+  document.getElementById('modalName').textContent = item.name;
   document.getElementById('modalPrice').textContent = `${item.price} د.ع`;
-  document.getElementById('modalDesc').textContent  = item.description || '';
+  document.getElementById('modalDesc').textContent = item.description || '';
   updateModalStar(isFav(item.id));
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -243,7 +239,7 @@ function showError() {
   const sections = document.getElementById('sections');
   sections.textContent = '';
   const msg = document.createElement('div');
-  msg.style.cssText = 'text-align:center;padding:60px 20px;color:#b06ac8;font-size:1.1rem;';
+  msg.style.cssText = 'text-align:center;padding:60px 20px;color:var(--dark-green);font-size:1.1rem;';
   msg.textContent = '⚠️ تعذّر تحميل القائمة، تأكد من تشغيل الخادم.';
   sections.appendChild(msg);
 }
