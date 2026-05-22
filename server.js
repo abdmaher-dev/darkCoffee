@@ -403,7 +403,7 @@ app.get('/api/menu', async (req, res) => {
     const catObj = {};
     cats.forEach(c => { catObj[c.key] = { label: c.label, icon: c.icon, subtitle: c.subtitle, order: c.order }; });
     res.json({
-      cafe:          { name: 'Aroma Cafe', subtitle: 'Where Magic Happens', logo: '' },
+      cafe:          { name: 'Dark Cafe', subtitle: '', logo: '' },
       categories:    catObj,
       categoriesArr: categoriesArr,
       items: items.map(i => ({

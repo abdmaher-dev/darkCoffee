@@ -2,7 +2,7 @@
 //  app.js — Dark Coffee
 // ============================================================
 
-const API_URL = 'https://aroma-cafe-production.up.railway.app/api/menu';
+const API_URL = 'https://darkcoffee-production.up.railway.app/api/menu';
 const FAV_KEY = 'darkcoffee_favorites';
 
 function esc(str) {
